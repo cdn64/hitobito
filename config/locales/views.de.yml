@@ -1041,6 +1041,7 @@ de:
     attrs:
       additional_data: Weitere Angaben
       events: Meine nächsten Anlässe
+      events_with_cancelation_or_rejection: 'Abgemeldet oder nicht zugelassen'
 
     contact_data:
       lives_in_household_with: Wohnt im Haushalt mit

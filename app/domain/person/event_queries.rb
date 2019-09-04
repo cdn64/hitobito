@@ -24,6 +24,15 @@ class Person::EventQueries
     end
   end
 
+  def with_cancelation_or_rejection
+    person.events
+          .upcoming
+          .joins('LEFT JOIN event_applications ' \
+                 'ON event_participations.application_id = event_applications.id')
+          .where("event_participations.state = 'canceled' OR event_applications.rejected = ?", true)
+          .uniq
+  end
+
   def upcoming_events
     person.events.
       upcoming.

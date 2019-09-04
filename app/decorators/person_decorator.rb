@@ -100,6 +100,11 @@ class PersonDecorator < ApplicationDecorator
       Event::ApplicationDecorator.decorate_collection(event_queries.pending_applications)
   end
 
+  def events_with_cancelation_or_rejection
+    @canceled_participations ||=
+      EventDecorator.decorate_collection(event_queries.with_cancelation_or_rejection)
+  end
+
   def upcoming_events
     @upcoming_events ||= EventDecorator.decorate_collection(event_queries.upcoming_events)
   end
