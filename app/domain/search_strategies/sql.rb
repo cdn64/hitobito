@@ -74,6 +74,7 @@ module SearchStrategies
       fields = SEARCH_FIELDS[scope.model.sti_name]
       scope.joins(fields[:joins])
            .where(SqlConditionBuilder.new(@term, fields[:attrs]).search_conditions)
+           .order(SqlOrderingBuilder.new(scope, @user).order_clause)
            .distinct
     end
 
