@@ -281,7 +281,7 @@ class StandardFormBuilder < ActionView::Helpers::FormBuilder
       content = caption_or_content
       caption_or_content = nil
     end
-    content << help_texts.render_field(attr)
+    content << render_help_text(attr)
     content << field_help if field_help.present?
 
     caption_or_content ||= captionize(attr, klass)
@@ -378,6 +378,10 @@ class StandardFormBuilder < ActionView::Helpers::FormBuilder
       (block_given? ? yield : content) +
         content_tag(:span, addon, class: 'add-on')
     end
+  end
+
+  def render_help_text(attr)
+    help_texts.render_field(attr)
   end
 
   private
