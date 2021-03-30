@@ -359,6 +359,7 @@ de:
         explanation: Du bist für diesen Anlass angemeldet.
         caption: Abmelden
         confirmation: "Bist Du sicher, dass Du dich von diesem Anlass abmelden möchtest?"
+      show_application: "Anmeldung ansehen"
 
     qualifications:
       index:
